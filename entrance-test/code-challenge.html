@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrance Test to Code Intensive</title>
+    <link rel="icon" href="./exam.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            text-align: center;
+            font-size: 62.5%;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            color: #000000;
+            background-color: #ddefff;
+            margin: 0 16px;
+        }
+        
+        .lucky-number {
+            max-width: 600px;
+            height: 320px;
+            margin: 24vh auto;
+            padding: 0 0 28px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+            background-color: #f0f8ff;
+        }
+
+        .title {
+            position: relative;
+            padding: 20px;
+            border-radius: 8px 8px 0 0;
+            font-size: 4rem;
+            color: #ffffff;
+            background-color: #6495ed99;
+        }
+
+        .description {
+            padding: 32px 0 20px;
+            font-size: 2rem;
+        }
+
+        .lucky-input input {
+            color: #a9a9a9;
+            font-size: 1.6rem;
+            border: none;
+            width: 256px;
+            padding: 12px 16px;
+            outline: none;
+            border-radius: 4px;
+            margin-right: 8px;
+        }
+
+        .lucky-input input::placeholder {
+            color: #a9a9a9;
+        }
+
+        .lucky-input button {
+            font-weight: 600;
+            font-size: 2rem;
+            color: #ffffff;
+            border: none;
+            padding: 10px 16px;
+            outline: none;
+            border-radius: 4px;
+            background-color: #f08080;
+        }
+
+        .lucky-input button:hover {
+            cursor: pointer;
+            opacity: 0.8;
+        }
+
+        .result {
+            margin: 20px;
+            font-weight: 600;
+            font-size: 2rem;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Xây dựng trang web "Dự đoán kết quả xổ số". Với các chức năng sau:
+        - Người chơi phải đoán số trong một khoảng cho phép và nhập vào ô dự đoán, nếu nhập sai hiện thông báo nhập lại
+        - Người chơi được đoán tối đa 3 lần
+        - Hiện kết quả đúng nếu người chơi chọn sai số đã dự đoán
+        - Hiện kết quả trúng thưởng nếu người chơi chọn đúng số
+        - Giao diện đẹp và có responsive để có thể chơi thử trên smartphone là một điểm cộng
+        - Có link trên github page hoặc link bất kỳ có thể truy cập càng tốt.
+    -->
+    <div class="lucky-number">
+        <h1 class="title">Lucky Number</h1>
+        <p class="description">Predict your number between 0 and 99</p>
+        <div class="lucky-input">
+            <input type="text" placeholder="Enter the number you predict...">
+            <button>Dial</button>
+        </div>
+        <p class="result"></p>
+    </div>
+
+    <script>
+        const button = document.querySelector(".lucky-input button");
+        const input = document.querySelector(".lucky-input input");
+        const result = document.querySelector(".result");
+        let turn = 1;
+
+        function showResult(content, color) {
+            result.innerHTML = content;
+            result.style.color = color;
+            setTimeout(function () {
+                result.innerHTML = '';
+            }, 2000);
+        }
+
+        button.addEventListener('click', function () {
+            // let luckyNumber = Math.floor(Math.random() * 100);
+            let luckyNumber = 47;
+
+            if (input.value === '') {
+                showResult("Please enter a number!", "#8b0000");
+                return undefined;
+            }
+            if (input.value < 0 || input.value > 99) {
+                showResult("Invalid number!", "#8b0000");
+                turn++;
+
+                input.focus();
+                input.value = '';
+                return undefined;
+            }
+            if (input.value == luckyNumber) {
+                result.innerHTML = "Lucky dialing...";
+                result.style.color = "#696969";
+                setTimeout(function () {
+                    button.innerHTML = 'Try it again!';
+                    button.addEventListener('click', function() {
+                        location.reload();
+                    });
+                    showResult("Congratulations on winning from the lucky number!", "#ffe33f");
+
+                    input.focus();
+                    input.value = '';
+                    return undefined;
+                }, 4000);
+            }
+            else {
+                result.innerHTML = "Lucky dialing...";
+                result.style.color = "#696969";
+                setTimeout(function () {
+                    if (turn >= 3) {
+                        button.innerHTML = 'Try it again!';
+                        button.addEventListener('click', function() {
+                            location.reload();
+                        });
+                        result.innerHTML = `Your turn is over, the lucky number is ${luckyNumber}!`;
+                        result.style.color = "#1644a8";
+
+                        input.focus();
+                        input.value = '';
+                        return undefined;
+                    }
+                    else {
+                        showResult("Sorry, this is not the lucky number :(", "#1644a8");
+                        turn++;
+
+                        input.focus();
+                        input.value = '';
+                        return undefined;
+                    }
+                }, 4000);
+            }
+        });
+    </script>
+</body>
+</html>

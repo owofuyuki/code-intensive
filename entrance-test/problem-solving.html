@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrance Test to Code Intensive</title>
+    <link rel="icon" href="./exam.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            position: relative;
+        }
+
+        .title {
+            position: relative;
+            font-size: 3.2vw;
+            line-height: 3.2vw;
+            color: black;
+        }
+
+        .icon {
+            position: absolute;
+            font-size: 6.4vw;
+            line-height: 6.4vw;
+            z-index: -10;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: lightblue;
+        }
+
+        .underline {
+            width: 60vw;
+            height: 0.4vw;
+            margin: 0 auto;
+            background-color: lightcoral;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="title">Find the Opposite Number on a Circle</h1>
+    <h1 class="icon">&</h1>
+    <h1 class="title">Merge Alternating Character Strings</h1>
+    <div class="underline"></div>
+
+    <script>
+        // Cho n số nguyên liên tiếp từ 0 đến n-1 được biểu diễn trên một vòng tròn, khoảng cách giữa các số bằng nhau (và tất nhiên là 0 và số n-1 cũng ở cạnh nhau).
+        // Biết rằng n là số nguyên dương chẵn nằm trong khoảng từ 4 đến 20.
+        // Viết hàm findOppositeNumber(n, inputNumber) cho trước 2 tham số đầu vào là n và inputNumber tồn tại trong dãy.
+        // Tìm số đối diện với số inputNumber đó (0 <= inputNumber <= n - 1)
+        function findOppositeNumber(n, inputNumber) {
+            if (n % 2 != 0 || n < 4 || n > 20) {
+                console.log(`Invalid number!`);
+                return null;
+            }
+            else if (0 <= inputNumber && inputNumber <= n - 1) {
+                let result;
+                if (inputNumber < n /2) result = inputNumber + n/2;
+                else result = inputNumber - n/2;
+                console.log(`The opposite number is ${result}`);
+                return result;
+            }
+            else {
+                console.log(`Invalid input!`);
+                return null;
+            }
+        }
+
+        findOppositeNumber(10, 2);
+        findOppositeNumber(10, 6);
+
+        // Viết 1 hàm nhận vào 2 chuỗi s1 và s2, trả về đầu ra là một chuỗi mới chứa các kí tự xen kẽ cùng vị trí vị trí của 2 chuỗi với nhau.
+        function merge2String(s1, s2) {
+            const array1 = s1.split(''), array2 = s2.split('');
+            const result = [];
+            for (let i = 0, j = 0; i < s1.length || i < s2.length; i++) {
+                if (i < s1.length) result[j++] = array1[i];
+                if (i < s2.length) result[j++] = array2[i];
+            }
+            result.toString();
+            console.log(`The string after the merge is ${result.join('')}`);
+            return result;
+        }
+
+        merge2String("abc", "123");
+        merge2String("abc", "0123");
+        merge2String("abcd", "123");
+    </script>
+</body>
+</html>
