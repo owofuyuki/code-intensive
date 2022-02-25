@@ -64,6 +64,10 @@
             margin-right: 8px;
         }
 
+        .lucky-input {
+            position: relative;
+        }
+
         .lucky-input input::placeholder {
             color: #a9a9a9;
         }
@@ -90,6 +94,24 @@
             font-size: 2rem;
         }
 
+        @media (max-width: 740px) {
+            .lucky-number {
+                height: 480px;
+                margin: 16vh auto;
+            }
+
+            .lucky-input {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .lucky-input input, .lucky-input button {
+                width: 80vw;
+                margin: 8px 16px;
+            }
+
+        }
     </style>
 </head>
 <body>
