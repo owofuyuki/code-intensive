@@ -153,12 +153,13 @@
 
             if (input.value === '' || isNaN(input.value)) {
                 showResult("Please enter a number!", "#8b0000");
+                input.focus();
+                input.value = '';
                 return undefined;
             }
             if (input.value < 0 || input.value > 99) {
                 showResult("Invalid number!", "#8b0000");
                 turn++;
-
                 input.focus();
                 input.value = '';
                 return undefined;
@@ -197,7 +198,6 @@
                     else {
                         showResult("Sorry, this is not the lucky number :(", "#1644a8");
                         turn++;
-
                         input.focus();
                         input.value = '';
                         return undefined;
