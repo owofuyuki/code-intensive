@@ -39,10 +39,3 @@ console.log(appearedTheMost([1, 2, 3, 5, 6, 4, 2, 1, 6, 3, 5, 3]));
 //      · Thêm mới danh bạ với tên và số điện thoại
 //      · Tìm kiếm danh bạ theo tên và số điện thoại
 //      · Xoá các danh bạ bị trùng số điện thoại. Sẽ xóa người nào đứng sau
-
-const obj = { name: "MindX" }
-const sayHello = (x) => {
-    let {name} = x
-    name = "Code Intensive"
-}
-console.log(sayHello(obj))
