@@ -1,0 +1,22 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 62.5%;
+    font-family: 'Poppins', sans-serif;
+	text-align: center;
+}
+
+body {
+    display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-size: 4rem;
+    color: #000000;
+    background-color: #ddefff;
+}
