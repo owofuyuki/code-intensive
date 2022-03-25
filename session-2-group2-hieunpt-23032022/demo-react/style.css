@@ -1,0 +1,39 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 62.5%;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    /* display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center; */
+	font-size: 2rem;
+    color: #000000;
+    background-color: #ddefff;
+}
+
+.name-card {
+    width: 200px;
+    border: 1px solid black;
+    padding: 20px;
+    border-radius: 12px;
+    margin: 16px;
+}
+
+.name {
+    font-size: 2.4rem;
+    font-weight: bold;
+}
+
+.age {
+    font-size: 1.2rem;
+    font-style: italic;
+}
