@@ -8,15 +8,172 @@ html {
     scroll-behavior: smooth;
     font-size: 62.5%;
     font-family: 'Poppins', sans-serif;
-	text-align: center;
 }
 
 body {
-    display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	font-size: 4rem;
     color: #000000;
     background-color: #ddefff;
+    margin: 0 16px;
+}
+
+.phonebook {
+    max-width: 600px;
+    min-height: 400px;
+    margin: 8vh auto;
+    padding: 0 0 24px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    background-color: #f0f8ff;
+}
+
+.title {
+    position: relative;
+    padding: 20px;
+    border-radius: 8px 8px 0 0;
+    text-align: center;
+    font-size: 4rem;
+    color: #ffffff;
+    background-color: #6495ed99;
+}
+
+.description {
+    margin: 16px 32px 0;
+    font-size: 1.2rem;
+    color: #4682b4;
+    opacity: 0.8;
+}
+
+.input {
+    flex: 1;
+    color: #a9a9a9;
+    font-size: 1.6rem;
+    border: none;
+    width: 256px;
+    margin-right: 8px;
+    padding: 12px 16px;
+    outline: none;
+    border-radius: 4px;
+}
+
+.input::placeholder {
+    color: #a9a9a9;
+}
+
+.button {
+    font-weight: 600;
+    font-size: 1.6rem;
+    color: #ffffff;
+    border: none;
+    padding: 12px 16px;
+    outline: none;
+    border-radius: 4px;
+    background-color: #4682b4;
+}
+
+.button:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.box {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.box::after {
+    position: absolute;
+    content: "";
+    width: 80%;
+    height: 0.16rem;
+    left: 50%;
+    transform: translate(-50%);
+    bottom: -16px;
+    background-color: #6495ed99;
+}
+
+.add-number {
+    margin: 4px 16px 32px;
+}
+
+.name-input {
+
+}
+
+.tel-input {
+
+}
+
+.add-button {
+
+}
+
+.search-box {
+    margin: 4px 16px 32px;
+}
+
+.search-input {
+    
+}
+
+.button-wrap {
+    display: flex;
+    margin: 0 !important;
+}
+
+.search-button {
+    margin-right: 8px !important;
+}
+
+.remove-button {
+    background-color: #f08080;
+}
+
+.phonebook-list {
+    max-height: 320px;
+    margin: 0 16px;
+    overflow: scroll;
+}
+
+.phonebook-item {
+    display: flex;
+    justify-content: space-between;
+    width: 96%;
+    padding: 8px 16px;
+    margin: 8px auto;
+    background-color: #faebd7a3;
+    font-size: 1.6rem;
+    border-radius: 8px;
+    list-style: none;
+}
+
+.phonebook-item:first-child {
+    margin: 4px auto;
+}
+
+.name {
+    font-weight: 400;
+}
+
+.tel {
+    font-weight: 200;
+    font-style: italic;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 740px) {
+    .box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .input, .button, .button-wrap {
+        width: 100%;
+        margin: 4px 0;
+    }
 }
