@@ -166,6 +166,10 @@ body {
 }
 
 @media (max-width: 740px) {
+    .phonebook {
+        margin: 16px auto;
+    }
+
     .box {
         display: flex;
         flex-direction: column;
