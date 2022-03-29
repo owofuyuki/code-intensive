@@ -60,7 +60,7 @@ function TaskItem(props) {
 function TaskList() {
   let items = [];
   todoList.forEach((item) => {
-    items.push(<TaskItem task={item.task} />);
+    items.push(<TaskItem key={item.task.toString()} task={item.task} />);
   });
   return (
     <ul className="task-list">
