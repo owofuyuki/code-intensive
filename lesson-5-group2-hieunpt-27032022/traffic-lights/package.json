@@ -1,5 +1,5 @@
 {
-  "name": "state-and-events",
+  "name": "traffic-lights",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
