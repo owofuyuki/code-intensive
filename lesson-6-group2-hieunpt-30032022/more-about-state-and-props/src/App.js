@@ -1,11 +1,12 @@
-import { useState } from "react"
 import './App.css';
-import Form from "./Form"
+import Form from "./Form";
+import List from "./List";
 
 function App() {
   return (
     <div>
       <Form />
+      <List />
     </div>
   );
 }
