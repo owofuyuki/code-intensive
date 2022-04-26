@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 
+// Interface-only
+
 const todoList = [
   {
     task: "Clean up bedroom",
