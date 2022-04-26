@@ -1,4 +1,4 @@
-import { useState } from "react";
+// import { useState } from "react";
 import './App.css';
 import Form from "./Form";
 import List from "./List";
@@ -10,7 +10,7 @@ function App() {
       <List />
     </div>
   );
-};
+}
 
 // function App() {
 //   const [alice, setAlice] = useState({name: "Alice", age: 10});
