@@ -1,11 +1,5 @@
-import { useState } from "react";
-
 const ListItem = (props) => {
-    const [done, setDone] = useState(false);
-
-    const handleClick = () => {
-        setDone(true);
-    };
+    const done = props.done;
 
     if (done) return (
         <div style={{ textDecoration: "line-through", opacity: 0.32 }}>
@@ -14,7 +8,7 @@ const ListItem = (props) => {
     );
 
     return (
-        <div onClick={handleClick}>
+        <div onClick={props.onClick}>
             {props.value}
         </div>
     );
