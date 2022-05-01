@@ -21,16 +21,18 @@ export default function Inputs() {
     <div className="App">
       <button onClick={append}>Append</button>
       <button onClick={prepend} style={{marginLeft: 8}}>Prepend</button>
-      {inputs.map((input, idx) => {
-        return (
-          <li key={input} style={{marginTop: 4}}>
-            <label style={{marginBottom: 2}}>
-              {input}
-              <input style={{marginLeft: 8}} />
-            </label>
-          </li>
-        );
-      })}
+      <ul>
+        {inputs.map((input, idx) => {
+            return (
+            <li key={input} style={{marginTop: 4}}>
+                <label style={{marginBottom: 2}}>
+                {input}
+                <input style={{marginLeft: 8}} />
+                </label>
+            </li>
+            );
+        })}
+      </ul>
     </div>
   );
 }
