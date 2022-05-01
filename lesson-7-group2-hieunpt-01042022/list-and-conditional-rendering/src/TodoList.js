@@ -30,7 +30,7 @@ const TodoList = () => {
 
                 {/* Simplify */}
 
-                {todoItems.map((item) => { return (<li>{item}</li>); })}
+                {todoItems.map((item, idx) => { return (<li key={idx}>{item}</li>); })}
             </ul>
         </div>
     );
