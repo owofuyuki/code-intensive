@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './App.css';
 import Header from './Header';
 import SideBar from './SideBar';
@@ -6,8 +7,9 @@ import Footer from './Footer';
 import ThemeContext from './ThemeContext';
 
 function App() {
+  const [theme, setTheme] = useState("light");
   return (
-    <ThemeContext.Provider value={{ theme: "light" }}>
+    <ThemeContext.Provider value={{ theme: theme, setTheme: setTheme }}>
       <div style={{display: "flex", flexDirection: "column", height: "100vh"}}>
         <Header />
         <div style={{display: "flex", flex: 1, alignItems: "stretch"}}>
