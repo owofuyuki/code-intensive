@@ -1,8 +1,9 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 
 const UseMemo = () => {
     const [items, setItems] = useState([1, 2, 3]);
     const [visible, setVisible] = useState(true);
+    const [user, setUser] = useState(null);
     
     const doubleItems = items.map((item) => item * 2);
 
@@ -26,6 +27,18 @@ const UseMemo = () => {
         console.log("memoizedDoubleItems changed");
     }, [memoizedDoubleItems]);
 
+    const getNewUser = useCallback((id) => {
+        fetch("https://randomuser.me/api/")
+        .then((res) => res.json())
+        .then((resJson) => {
+            setUser(resJson.results[0]);
+        });
+    }, []);
+
+    useEffect(() => {
+        getNewUser(1);
+    }, [getNewUser]);
+
     return (
         <div style={{margin: 32}}>
             <button onClick={addToItems}>Push</button>
@@ -34,6 +47,13 @@ const UseMemo = () => {
                 <div>
                     <p>{items.join(", ")}</p>
                     <p>{memoizedDoubleItems.join(", ")}</p>
+                </div>
+            )}
+            <button onClick={getNewUser} style={{marginBottom: 16}}>Refresh</button>
+            {user && (
+                <div>
+                    <img src={user.picture.medium} alt="" />
+                    <p>{user.name.first} {user.name.last}</p>
                 </div>
             )}
         </div>
